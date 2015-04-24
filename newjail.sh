@@ -15,6 +15,8 @@ error() {
 RELTYPE=`echo ${VERSION} | cut -d '-' -f 2 | tr "[:upper:]" "[:lower:]"`
 if [ ${RELTYPE} = "current" ]; then
 	RELTYPE=snapshots
+else
+	RELTYPE=releases
 fi
 
 DISTRIBUTIONS="base.txz"
