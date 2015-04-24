@@ -4,6 +4,14 @@ ARCH=amd64
 TARGET=amd64
 VERSION=11.0-CURRENT
 
+error() {
+	if [ -n "$1" ]; then
+		echo "ERROR: $1"
+	fi
+	exit 1
+}
+
+
 RELTYPE=`echo ${VERSION} | cut -d '-' -f 2 | tr "[:upper:]" "[:lower:]"`
 if [ ${RELTYPE} = "current" ]; then
 	RELTYPE=snapshots
