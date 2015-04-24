@@ -23,9 +23,10 @@ if [ $? -eq 0 ]; then
 	DISTRIBUTIONS="${DISTRIBUTIONS} lib32.txz"
 fi
 
-BSDINSTALL_DISTSITE="ftp://ftp0.twn.freebsd.org/pub/FreeBSD/${RELTYPE}/${ARCH}/${TARGET}/${VERSION}"
-BSDINSTALL_CHROOT="/j/jails/jail1"
-BSDINSTALL_DISTDIR="/tmp/freebsd-dist-${ARCH}-${TARGET}-${VERSION}"
+export DISTRIBUTIONS
+export BSDINSTALL_DISTSITE="ftp://ftp0.twn.freebsd.org/pub/FreeBSD/${RELTYPE}/${ARCH}/${TARGET}/${VERSION}"
+export BSDINSTALL_CHROOT="/j/jails/jail1"
+export BSDINSTALL_DISTDIR="/tmp/freebsd-dist-${ARCH}-${TARGET}-${VERSION}"
 
 mkdir -p ${BSDINSTALL_DISTDIR}
 bsdinstall distfetch || error "Failed to fetch distribution"
